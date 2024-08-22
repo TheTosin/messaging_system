@@ -116,12 +116,6 @@ Retrieve the logs by accessing the /logs endpoint:
 curl "http://localhost/logs"
 ```
 
-Step 7: Record the Setup Process
-Screen Recording:
-
-Use a screen recording tool (like OBS Studio) to capture your setup process, including:
-Installing and configuring RabbitMQ and Celery.
-Developing and running the Python application.
 Configuring Nginx.
 Testing the endpoints.
 Exposing the application with Ngrok (if used).
