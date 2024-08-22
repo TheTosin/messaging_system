@@ -4,21 +4,26 @@ Install Dependencies:
 
 Ensure you have Python installed (version 3.8+).
 Install the required packages via pip:
-bash
+```bash
 pip install -r requirements.txt
+```
 Install RabbitMQ:
 
 Install RabbitMQ on your system. If you are using Ubuntu, you can install RabbitMQ using the following commands:
-bash
+```bash
 sudo apt-get update
 sudo apt-get install rabbitmq-server
 sudo systemctl enable rabbitmq-server
 sudo systemctl start rabbitmq-server
+```
+
 Verify RabbitMQ Installation:
 
 Confirm that RabbitMQ is running by checking its status:
-bash
+```bash
 sudo systemctl status rabbitmq-server
+```
+
 You can also access the RabbitMQ management interface by visiting http://localhost:15672 in your browser (use the default credentials: guest/guest).
 Step 2: Configure Your Python Application
 Application Overview:
@@ -41,9 +46,10 @@ Step 3: Set Up and Configure Nginx
 Install Nginx:
 
 Install Nginx on your system:
-bash
-Copy code
+```bash
 sudo apt-get install nginx
+```
+
 Create Nginx Configuration:
 
 Configure Nginx to proxy requests to your Flask application running on port 5000.
@@ -52,26 +58,30 @@ Create or modify the Nginx configuration file (e.g., /etc/nginx/sites-available/
 Test and Restart Nginx:
 
 Test the Nginx configuration:
-bash
-Copy code
+```bash
 sudo nginx -t
+```
+
 Restart Nginx to apply the configuration:
-bash
-Copy code
+```bash
 sudo systemctl restart nginx
+```
+
 Step 4: Run the Python Application with Celery
 Start the Celery Worker:
 
 In one terminal, start the Celery worker:
-bash
-Copy code
+```bash
 celery -A app.celery worker --loglevel=info
+```
+
 Run the Flask Application:
 
 In another terminal, start the Flask application:
-bash
-Copy code
+```bash
 python app.py
+```
+
 Step 5: Expose Your Application via Ngrok (Optional)
 Install Ngrok:
 
@@ -79,29 +89,33 @@ Download and install Ngrok from ngrok.com.
 Start Ngrok:
 
 Run Ngrok to expose your local application to the internet:
-bash
-Copy code
+```bash
 ngrok http 80
+```
+
 Ngrok will provide a public URL that you can use to access your application externally.
 Step 6: Test the Endpoints
 Send an Email:
 
 Test the / endpoint with a sendmail parameter to queue an email task:
-bash
-Copy code
+```bash
 curl "http://localhost/?sendmail=mailto:recipient@example.com"
+```
+
 Log Current Time:
 
 Test the / endpoint with a talktome parameter to log the current time:
-bash
-Copy code
+```bash
 curl "http://localhost/?talktome=now"
+```
+
 Fetch Logs:
 
 Retrieve the logs by accessing the /logs endpoint:
-bash
-Copy code
+```bash
 curl "http://localhost/logs"
+```
+
 Step 7: Record the Setup Process
 Screen Recording:
 
